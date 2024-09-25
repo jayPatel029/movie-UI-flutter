@@ -40,7 +40,6 @@ class _SearchScreenState extends State<SearchScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Search Bar
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[800],
@@ -81,8 +80,6 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             const SizedBox(height: 20),
-
-            // Search Results
             Expanded(
               child: isLoading
                   ? const Center(child: CircularProgressIndicator())
@@ -102,6 +99,7 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
+  //////////////////widgets///////////
   Widget buildSearchResults() {
     return apiRes.isEmpty
         ? const Center(

@@ -52,7 +52,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Poster Image
           Container(
             height: 400,
             decoration: BoxDecoration(
@@ -61,21 +60,18 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 topLeft: Radius.circular(24),
               ),
               image: DecorationImage(
+                //!todo image not loading!!
                 image: NetworkImage(widget.show.image?.original ?? ""),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 20),
-
-          // Title and Details
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: _buildDetailsSection(context),
           ),
           const SizedBox(height: 20),
-
-          // Action Buttons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: _buildActionButtons(),
@@ -94,7 +90,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Poster Image
             Expanded(
               flex: 2,
               child: Container(
@@ -109,8 +104,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ),
             const SizedBox(width: 24),
-
-            // Details Section
             Expanded(
               flex: 3,
               child: Column(
@@ -132,7 +125,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Title
         Text(
           widget.show.name ?? "No Title",
           style: TextStyle(
@@ -143,7 +135,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
         const SizedBox(height: 10),
 
-        // Genres
         Text(
           widget.show.genres?.join(", ") ?? "No Genres Available",
           style: const TextStyle(
@@ -153,13 +144,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
         const SizedBox(height: 10),
 
-        // Score & Rating
         Row(
           children: [
             const Icon(Icons.star, color: Colors.yellow),
             const SizedBox(width: 4),
             Text(
-              widget.show.rating?.average?.toString() ?? 'No Rating',
+              widget.show.rating?.average?.toString() ??
+                  'No Rating', //todo wrong param
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.white,
@@ -180,7 +171,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
         // Summary
         Text(
-          widget.show.summary != null
+          widget.show.summary != null //todo html tags in resbody
               ? isExpanded
                   ? widget.show.summary!.replaceAll(RegExp(r'<[^>]*>'), '')
                   : '${widget.show.summary!.replaceAll(RegExp(r'<[^>]*>'), '').substring(0, 150)}...'
@@ -205,7 +196,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ),
         const SizedBox(height: 20),
 
-        // Additional Info
         _buildInfoRow(
             Icons.language, "Language: ${widget.show.language ?? 'N/A'}"),
         const SizedBox(height: 10),
@@ -229,14 +219,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
+  //////////////////!widgets////////////
+
   Widget _buildActionButtons() {
     return Row(
       children: [
         Expanded(
           child: ElevatedButton(
-            onPressed: () {
-              // Handle Watch Now action
-            },
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -250,9 +240,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         const SizedBox(width: 10),
         Expanded(
           child: OutlinedButton(
-            onPressed: () {
-              // Handle Add to Watchlist action
-            },
+            onPressed: () {},
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16),
               side: const BorderSide(color: Colors.red),
@@ -270,7 +258,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
-  // Helper method to build info rows with an icon and text
   Widget _buildInfoRow(IconData icon, String text) {
     return Row(
       children: [

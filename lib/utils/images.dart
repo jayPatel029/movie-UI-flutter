@@ -1,2 +1,2 @@
-const app_logo = "assets/flutter-logo.png";
-const movie = "assets/movie.png";
+const app_logo = "assets/logo.png";
+const logo2 = "assets/logo2.png";
