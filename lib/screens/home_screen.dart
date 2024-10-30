@@ -163,19 +163,5 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  // void onBottomTap(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  //   if (_selectedIndex == 1) {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => SearchScreen()),
-  //     ).then((value) {
-  //       setState(() {
-  //         _selectedIndex = 0;
-  //       });
-  //     });
-  //   }
-  // }
+
 }

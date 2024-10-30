@@ -1,13 +1,24 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_api_quad/screens/bottom_nav.dart';
 import 'package:movie_api_quad/screens/splash_screen.dart';
 
 void main() {
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      backgroundColor: Colors.grey,
+      enabled: kDebugMode,
+      defaultDevice: Devices.android.mediumPhone,
+      isToolbarVisible: true,
+      availableLocales: const [Locale('en', "US")],
+      tools: const [
+        DeviceSection(
+          model: true,
+          orientation: false,
+          frameVisibility: false,
+          virtualKeyboard: false,
+        ),
+      ],
       builder: (context) => MyApp(),
     ),
 
